@@ -8,7 +8,7 @@ namespace Admin.Models
 {
     public partial class Tbl_GEN_USUARIOS 
     {
-
+        /*COMENTARIO*/
         [Key]
         [Column(Order = 1)]
         public decimal Id_Dist { get; set; }
