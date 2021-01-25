@@ -1,0 +1,69 @@
+﻿@model Admin.Models.Tbl_GEN_USUARIOS
+@{
+    ViewData["Title"] = "COBE_73";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    
+}
+
+
+
+    <body class="gray-bg">
+
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div>
+                <div>
+
+                    <h1 class="logo-name">CO+</h1>
+
+                </div>
+                <h3>Bienvenido COBE_73</h3>
+                <form method="post" role="form" asp-action="">
+                    <input type="hidden" asp-for="Id_Dist" id="hf_id_dist" />
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control txtrfc" placeholder="RFC" Style="text-transform: uppercase" name="txtrfc" asp-for="Rfc">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-default" id="btnTraerUsuarios">
+                                <i class="fa fa-users"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Username" id="hf_username" />
+                        <select type="text" class="form-control" placeholder="Usuario" id="selectUsers" asp-for="Id">
+                            <option value="S">Seleccione Usuario</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control txtPassword" placeholder="Password" asp-for="Password">
+                    </div>
+                    <button type="submit" id="btnLogin" class="btn btn-success block full-width m-b">Login</button>
+
+                    @*<a href="#">
+                        <small>Recuperar password?</small>
+                    </a>
+
+                    <p class="text-muted text-center">
+                        <small>Do not have an account?</small>
+                    </p>
+                    <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>*@
+                </form>
+                <p class="m-t">
+                    <small>Este sistema cuenta todos los derechos de COBE_73.</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Mainly scripts -->
+
+        <script src="~/admin001/js/jquery-3.1.1.min.js"></script>
+        <script src="~/admin001/js/popper.min.js"></script>
+        <script src="~/admin001/js/bootstrap.js"></script>
+
+     
+
+    </body>
+<script>
+
+</script>
+@*<script src="~/js/inicio.js"></script>*@
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.8/login_two_columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Nov 2020 18:57:48 GMT -->

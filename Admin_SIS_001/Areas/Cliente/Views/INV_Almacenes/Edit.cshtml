@@ -1,0 +1,112 @@
+﻿@model Admin.Models.INV.ViewModels.VM_INV_ALMACENES
+@{
+    ViewData["Title"] = "Editar Almacén";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" asp-action="Edit">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Ediatr Almacén</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="Almacen.Id" />
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="form-group">
+                            <label asp-for="Almacen.Id_Sucursal">Sucursal</label>
+                            @Html.DropDownListFor(m => m.Almacen.Id_Sucursal, Model.ListaSucursales,
+                     "-Porfavor seleccione una sucursal-", new { @class = "form-control" })
+                            <span asp-validation-for="Almacen.Id_Sucursal" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Almacen.Id">Clave</label>
+                            <input asp-for="Almacen.Id" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Almacen.Descripcion">Descripcion</label>
+                            <input asp-for="Almacen.Descripcion" class="form-control" />
+                            <span asp-validation-for="Almacen.Descripcion" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label asp-for="Almacen.Activo">Activo</label>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            @{ if (Model.Almacen.Activo == true)
+                                                {
+                                                    <input type="checkbox" asp-for="Almacen.Activo" checked class="onoffswitch-checkbox cb_activo" id="cb_activo">
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" asp-for="Almacen.Activo" class="onoffswitch-checkbox cb_activo" id="cb_activo">
+                                                }}
+                                            <label class="onoffswitch-label" for="cb_activo">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Almacen.Activo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label asp-for="Almacen.Predeterminado">Predeterminado</label>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            @{ if (Model.Almacen.Predeterminado == true)
+                                                {
+                                                    <input type="checkbox" asp-for="Almacen.Predeterminado" checked class="onoffswitch-checkbox cb_activo" id="cb_cbPredeterminado">
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" asp-for="Almacen.Predeterminado" class="onoffswitch-checkbox cb_activo" id="cb_cbPredeterminado">
+                                                }}
+
+                                            <label class="onoffswitch-label" for="cb_cbPredeterminado">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Almacen.Predeterminado" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Edit" } }' />
+                    </div>
+                </div>
+
+
+                <div class="col-12">
+                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/INV/almacenes.js"></script>
+
+
+
+
+}
+

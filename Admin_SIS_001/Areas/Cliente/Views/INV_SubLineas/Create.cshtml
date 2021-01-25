@@ -1,0 +1,89 @@
+﻿@model Admin.Models.INV.ViewModels.VM_INV_SUBLINEAS
+@{
+    ViewData["Title"] = "Registrar SubLinea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Registar SubLinea</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="form-group">
+                            <label asp-for="SubLinea.Id_Linea">Linea</label>
+                            @Html.DropDownListFor(m => m.SubLinea.Id_Linea, Model.ListaLineas,
+                     "-Porfavor seleccione una linea-", new { @class = "form-control" })
+                            <span asp-validation-for="SubLinea.Id_Linea" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SubLinea.Id">Clave</label>
+                            @{ if (ViewBag.Folio != null)
+                                {
+                                    <input asp-for="SubLinea.Id" class="form-control" value="@ViewBag.Folio" id="txtId" />
+                                }
+                                else
+                                {
+                                    <input asp-for="SubLinea.Id" class="form-control" />
+                                }}
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SubLinea.Descripcion">Descripcion</label>
+                            <input asp-for="SubLinea.Descripcion" class="form-control" />
+                            <span asp-validation-for="SubLinea.Descripcion" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label asp-for="SubLinea.Activo">Activo</label>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" asp-for="SubLinea.Activo" checked="" class="onoffswitch-checkbox" id="cbActivo">
+                                            <label class="onoffswitch-label" for="cbActivo">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="SubLinea.Activo" class="text-danger"></span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Create" } }' />
+                    </div>
+
+                </div>
+
+
+                <div class="col-12">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/INV/sublineas.js"></script>
+
+
+
+
+}
+
+

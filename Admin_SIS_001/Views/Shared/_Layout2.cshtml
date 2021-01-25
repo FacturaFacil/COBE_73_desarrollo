@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" translate="no">
+<head>
+    <title>COBE_73</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    @*<title>INSPINIA | Login 2</title>*@
+
+    <link href="~/admin001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admin001/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="~/admin001/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="~/admin001/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+
+    <link href="~/admin001/css/animate.css" rel="stylesheet">
+    <link href="~/admin001/css/style.css" rel="stylesheet">
+    <link href="~/admin001/css/plugins/JBox/jBox.all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/admin001/js/jquery-3.1.1.min.js"></script>
+    <script src="~/admin001/js/popper.min.js"></script>
+
+
+    <script src="~/admin001/js/bootstrap.js"></script>
+    <script src="~/admin001/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/admin001/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Flot -->
+    <script src="~/admin001/js/plugins/flot/jquery.flot.js"></script>
+    <script src="~/admin001/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="~/admin001/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="~/admin001/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="~/admin001/js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Peity -->
+    <script src="~/admin001/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="~/admin001/js/demo/peity-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/admin001/js/inspinia.js"></script>
+    <script src="~/admin001/js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="~/admin001/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="~/admin001/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="~/admin001/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="~/admin001/js/demo/sparkline-demo.js"></script>
+
+    <!-- ChartJS-->
+    <script src="~/admin001/js/plugins/chartJs/Chart.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="~/admin001/js/plugins/toastr/toastr.min.js"></script>
+
+    <script src="~/admin001/js/plugins/dataTables/datatables.min.js"></script>
+
+    <script src="~/admin001/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="~/admin001/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+
+    <script src="~/admin001/js/plugins/JBox/jBox.all.min.js"></script>
+    @*<script src="~/admin001/js/plugins/poppers/popper.min.js"></script>
+        <script src="~/admin001/js/plugins/tippy/tippy-bundle.umd.js"></script>*@
+    <script src="~/admin001/js/plugins/moment/moment-with-locales.js"></script>
+    <script src="~/js/inicio.js"></script>
+    <script src="~/js/clock.js"></script>
+
+    @await Html.PartialAsync("_notificationPartial")
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

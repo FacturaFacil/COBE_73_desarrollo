@@ -1,0 +1,28 @@
+﻿@using Admin.AccesoDatos.Data.Repository.GEN
+@using Admin.Models
+@inject MenuRepository menu
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Newtonsoft.Json;
+
+@{
+
+    var objDis = JsonConvert.DeserializeObject<Tbl_GEN_DISTRIBUIDORES>(Context.Session.GetString("objDistribuidor"));
+}
+
+
+<div class="footer">
+    <div class="float-right">
+        <div class="lblSistema">
+            <strong>Empresa:</strong>
+            <small class="lblSistemaRZ">&nbsp;@objDis.Razon_Social.ToUpper()</small>
+            &nbsp;&nbsp;
+            <strong>RFC:</strong>
+            <small class="lblSistemaRfc">&nbsp;@objDis.Rfc.ToUpper()</small>
+</div>
+    </div>
+
+    <div>
+        <strong>Copyright</strong>  &copy; 2020
+    </div>
+</div>

@@ -1,0 +1,469 @@
+﻿
+@model Admin.Models.INV.ViewModels.VM_INV_PRODUCTOS
+@{
+    ViewData["Title"] = "Registrar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Registrar Producto</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="row px-0">
+                                    <div class="col-12 px-0">
+                                        <div class="ibox border">
+                                            <div class="ibox body text-center">
+                                                <output id="imageRgistrar" class="img-fluid img-circle m-2">
+                                                    <a href="#">
+                                                        <img alt="image" class="img-fluid img-circle imageUser" src="~/img/prod2.jpg">
+                                                    </a>
+                                                </output>
+                                            </div>
+                                            <div class="ibox-footer">
+                                                <div class="caption text-center mt-2">
+                                                    <label class="btn btn-success btn-block" for="files">Cargar foto</label>
+                                                    <input asp-for="Producto.ruta_imagen" accept="image/*" type="file" id="files">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="tabs-container">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li><a class="nav-link active show" data-toggle="tab" href="#tab-1">Producto</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-2">Grals.</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-3">Impuestos</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-4">Cta.Contable</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-5">cfdi 3.3</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-6">Prod.Sustituto</a></li>
+                                        <li><a class="nav-link" data-toggle="tab" href="#tab-7">Prod.Proveedor</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" id="tab-1" class="tab-pane active show">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Id">Clave</label>
+                                                            @{ if (ViewBag.Folio != null)
+                                                                {
+                                                                    <input asp-for="Producto.Id" class="form-control" value="@ViewBag.Folio" id="txtId" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input asp-for="Producto.Id" class="form-control" />
+                                                                }}
+                                                            <span asp-validation-for="Producto.Id" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Descripcion">Descripción</label>
+                                                            <input asp-for="Producto.Descripcion" class="form-control" />
+                                                            <span asp-validation-for="Producto.Descripcion" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Clase">Clase</label>
+                                                            <select asp-for="Producto.Clase" class="form-control" id="cb_clase">
+                                                                <option value="Producto">Producto</option>
+                                                                <option value="Servicio">Servicio</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Modelo">Modelo</label>
+                                                            <input asp-for="Producto.Modelo" class="form-control" />
+                                                            <span asp-validation-for="Producto.Modelo" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Unidad">Unidad</label>
+                                                            <input asp-for="Producto.Unidad" class="form-control" />
+                                                            <span asp-validation-for="Producto.Unidad" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <label asp-for="Producto.Id_Linea">Linea</label>
+                                                        @Html.DropDownListFor(m => m.Producto.Id_Linea, Model.ListaLineas, "-Seleccione una Linea-", new { @class = "form-control" })
+                                                        <span asp-validation-for="Producto.Id_Linea" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Id_Linea">SubLinea</label>
+                                                            @Html.DropDownListFor(m => m.Producto.Id_Sublinea, Model.ListaSubLineas, "-Seleccione una Sublinea-", new { @class = "form-control" })
+                                                            <span asp-validation-for="Producto.Id_Sublinea" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Id_Marca">Marca</label>
+                                                            @Html.DropDownListFor(m => m.Producto.Id_Marca, Model.ListaMarcas, "-Seleccione una Marca-", new { @class = "form-control" })
+                                                            <span asp-validation-for="Producto.Id_Marca" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Descripcion_Extendida">Descripción Extendida</label>
+                                                            <textarea asp-for="Producto.Descripcion_Extendida" class="form-control"></textarea>
+                                                            <span asp-validation-for="Producto.Descripcion_Extendida" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Observaciones">Observaciones</label>
+                                                            <textarea asp-for="Producto.Observaciones" class="form-control"></textarea>
+                                                            <span asp-validation-for="Producto.Observaciones" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" id="tab-2" class="tab-pane">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Codigo_Barras">Código de Barras</label>
+                                                            <input asp-for="Producto.Codigo_Barras" class="form-control" />
+                                                            <span asp-validation-for="Producto.Codigo_Barras" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Control_Fisico">Control Físico</label>
+                                                            <select asp-for="Producto.Control_Fisico" class="form-control" id="cb_Control_Fisico">
+                                                                <option value="0">Sin Control</option>
+                                                                <option value="1">Estricto</option>
+                                                                <option value="1">Relajado</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Peso_Pieza_En_Gramos">Peso/Pza. Grs.</label>
+                                                            <input asp-for="Producto.Peso_Pieza_En_Gramos" class="form-control" />
+                                                            <span asp-validation-for="Producto.Peso_Pieza_En_Gramos" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Peso_Pieza_En_Kilos">Peso/Pza. Kgs.</label>
+                                                            <input asp-for="Producto.Peso_Pieza_En_Kilos" class="form-control" />
+                                                            <span asp-validation-for="Producto.Peso_Pieza_En_Kilos" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr />
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Activo">Activo</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Activo" checked="" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Activo">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Afecta_Almacen">Afecta Almacén</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Afecta_Almacen" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Afecta_Almacen">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Es_Paquete">Es Paquete</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Es_Paquete" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Es_Paquete">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Fraccion_En_Unidades">Fracción en Unidades</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Fraccion_En_Unidades" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Fraccion_En_Unidades">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Permite_Venta">Permite Venta</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Permite_Venta" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Permite_Venta">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Permite_Compra">Permite Compra</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Permite_Compra" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Permite_Compra">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-3">
+                                                        <div class="form-group">
+                                                            <label asp-for="Producto.Acepta_Descuento">Acepta Descuento</label>
+                                                            <div class="switch">
+                                                                <div class="onoffswitch">
+                                                                    <input type="checkbox" asp-for="Producto.Acepta_Descuento" class="onoffswitch-checkbox">
+                                                                    <label class="onoffswitch-label" for="Producto_Acepta_Descuento">
+                                                                        <span class="onoffswitch-inner"></span>
+                                                                        <span class="onoffswitch-switch"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" id="tab-3" class="tab-pane">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group row mb-1">
+                                                            <div class="col-md-4 mt-1">
+                                                                <div class="switch">
+                                                                    <div class="onoffswitch">
+                                                                        <input type="checkbox" asp-for="Producto.Maneja_Iva_Tras" class="onoffswitch-checkbox">
+                                                                        <label class="onoffswitch-label" for="Producto_Maneja_Iva_Tras">
+                                                                            <span class="onoffswitch-inner"></span>
+                                                                            <span class="onoffswitch-switch"></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <label asp-for="Producto.Maneja_Iva_Tras" class="col-md-7 pr-0 col-form-label">IVA Trasladado</label>
+                                                        </div>
+
+                                                        <div class="form-group row mb-1">
+                                                            <div class="col-md-4 mt-1">
+                                                                <div class="switch">
+                                                                    <div class="onoffswitch">
+                                                                        <input type="checkbox" asp-for="Producto.Maneja_Iva_Ret" class="onoffswitch-checkbox">
+                                                                        <label class="onoffswitch-label" for="Producto_Maneja_Iva_Ret">
+                                                                            <span class="onoffswitch-inner"></span>
+                                                                            <span class="onoffswitch-switch"></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <label asp-for="Producto.Maneja_Iva_Tras" class="col-md-7 col-form-label">IVA Retenido</label>
+                                                        </div>
+
+                                                        <div class="form-group row mb-1">
+                                                            <div class="col-md-4 mt-1">
+                                                                <div class="switch">
+                                                                    <div class="onoffswitch">
+                                                                        <input type="checkbox" asp-for="Producto.Maneja_Isr" class="onoffswitch-checkbox">
+                                                                        <label class="onoffswitch-label" for="Producto_Maneja_Isr">
+                                                                            <span class="onoffswitch-inner"></span>
+                                                                            <span class="onoffswitch-switch"></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <label asp-for="Producto.Maneja_Isr" class="col-md-7 col-form-label">ISR Retenido</label>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="table-responsive">
+                                                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                                                <table style="width:100%" class="table table-striped table-bordered table-hover dataTables-example dataTable" id="tblImpuestos" aria-describedby="DataTables_Table_0_info" role="grid">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Clave</th>
+                                                                            <th>Impuesto</th>
+                                                                            <th>Factor</th>
+                                                                            <th>Valor</th>
+                                                                            <th>Tipo</th>
+                                                                            <th>Opciones</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                        @for (int i = 0; i < Model.ListaImpuestos.Count; i++)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <label name="ListaImpuestos[${i}].Id_Impuesto">@Html.DisplayFor(ModelItem => Model.ListaImpuestos[i].Id_Impuesto)</label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <label name="ListaImpuestos[${i}].Descripcion_Impuesto">@Html.DisplayFor(ModelItem => Model.ListaImpuestos[i].Descripcion_Impuesto)</label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select name="ListaImpuestos[${i}].Tipo_Factor" class="form-control form-control-sm" id="cb_Factor">
+                                                                                        @if (Model.ListaImpuestos[i].Tipo_Factor.ToString().Trim() == "Tasa")
+                                                                                        {
+                                                                                            <option selected value="Tasa">Tasa</option>
+                                                                                            <option value="Exento">Exénto</option>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <option value="Tasa">Tasa</option>
+                                                                                            <option selected value="Exento">Exénto</option>
+                                                                                        }
+
+
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select name="ListaImpuestos[${i}].Tasa_O_Cuota" class="form-control form-control-sm" id="cb_valor">
+                                                                                        @if (Model.ListaImpuestos[i].Tasa_O_Cuota.ToString().Trim() == "16.00")
+                                                                                        {
+                                                                                            <option selected value="16">16</option>
+                                                                                            <option value="8">8</option>
+                                                                                            <option value="0">0</option>
+                                                                                        }
+                                                                                        else if (Model.ListaImpuestos[i].Tasa_O_Cuota.ToString().Trim() == "8")
+                                                                                        {
+                                                                                            <option value="16">16</option>
+                                                                                            <option selected value="8">8</option>
+                                                                                            <option value="0">0</option>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <option value="16">16</option>
+                                                                                            <option value="8">8</option>
+                                                                                            <option selected value="0">0</option>
+                                                                                        }
+
+
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td> <label name="ListaImpuestos[${i}].Tipo_Impuesto">@Html.DisplayFor(ModelItem => Model.ListaImpuestos[i].Tipo_Impuesto)</label></td>
+                                                                                <td>
+                                                                                    <div class="text-center">
+                                                                                        <p class="mb-0">
+                                                                                            <a onclick=Delete('') class="btn btn-danger btn-circle text-white"><i class="fa fa-trash btnEliminar"></i></a>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" id="tab-4" class="tab-pane">
+                                            <div class="panel-body">
+
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" id="tab-5" class="tab-pane">
+                                            <div class="panel-body">
+
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" id="tab-6" class="tab-pane">
+                                            <div class="panel-body">
+
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" id="tab-7" class="tab-pane">
+                                            <div class="panel-body">
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <br />
+                                        <div class="row">
+                                            <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Create" } }' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group row">
+                        @* <a asp-action="Index" class="btn btn-primary form-control"><i class="fa fa-angle-double-left"> <i class="fa fa-angle-double-left"> <b>&nbsp; Regresar a lista</b></i></i></a>*@
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/INV/productos.js"></script>
+
+    <script src="~/js/FUN/site.js"></script>
+
+
+}
+

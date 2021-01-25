@@ -1,0 +1,24 @@
+﻿
+<div class="col-md-3">
+
+</div>
+<div class="col-md-3 my-1">
+    <a asp-action="Index" class="btn btn-info btn-block btnPropio" id="btnRegresar"><i class="fa fa-angle-double-left"> <i class="fa fa-angle-double-left"> <b>&nbsp;Regresar</b></i></i></a>
+</div>
+<div class="col-md-3 my-1">
+    <a asp-action="@ViewData["data"]" class="btn btn-danger btn-block btnPropio" id="btnCancelar"><i class="fa fa-times-circle"> <b>&nbsp;Cancelar</b></i></a>
+</div>
+<div class="col-md-3 my-1">
+    @{ if (ViewData["data"].ToString() == "Create")
+        {
+            <button type="submit" class="btn btn-success btn-block btnPropio" id="btnGuardar"><i class="fa fa-save">&nbsp;<b>Guardar</b></i></button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-success btn-block btnPropio" id="btnActualizar">
+                <i class="fa fa-save">&nbsp;<b>Actualizar</b></i>
+            </button>
+        }}
+
+</div>
+

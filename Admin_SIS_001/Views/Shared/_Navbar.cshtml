@@ -1,0 +1,83 @@
+﻿
+@using Admin.AccesoDatos.Data.Repository.GEN
+@using Admin.Models
+@inject MenuRepository menu
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Newtonsoft.Json;
+
+@{
+    IEnumerable<Admin.Models.Tbl_GEN_MENU> lista = menu.GetAll();
+    var objUsuario = JsonConvert.DeserializeObject<Tbl_GEN_USUARIOS>(Context.Session.GetString("objUsuario"));
+}
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element text-center">
+                    <a asp-area="Cliente" asp-controller="Home" asp-action="Index"> <img alt="image" class="rounded-circle" src="~/admin001/img/profile_small.jpg" /></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        @{
+                            if (objUsuario != null)
+                            {
+                                <span class="block m-t-xs font-bold">@objUsuario.Username</span>
+
+                                <span class="text-muted text-xs block">ROL <b class="caret"></b></span>
+                            }
+                            else
+                            {
+                                <span class="block m-t-xs font-bold">Gilberto</span>
+
+                                <span class="text-muted text-xs block">Administrador <b class="caret"></b></span>
+                            }
+
+                        }
+
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="contacts.html">Contacto</a></li>
+                        <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="login.html">Salir</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    CO+
+                </div>
+            </li>
+
+
+            @{foreach (var item in lista.Where(s => s.Id_Padre == 0).GroupBy(Obj => new { Obj.Id }).Distinct().ToList())
+                {
+                    <li>
+                        <a href="#" aria-expanded="false"><i class="@item.FirstOrDefault().Icono"></i> <span class="nav-label">@item.FirstOrDefault().Descripcion</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse" aria-expanded="false">
+                            @{foreach (var firstItem in (lista.Where(s => s.Id_Padre == item.FirstOrDefault().Id).ToList()))
+                                {
+                                    <li>
+                                        <a href="#" aria-expanded="false"> @firstItem.Descripcion <span class="fa arrow"></span> </a>
+                                        <ul class="nav nav-third-level collapse">
+                                            @foreach (var secondItem in (lista.Where(s => s.Id_Padre == firstItem.Id).ToList()))
+                                            {
+                                                <li><a href="/@secondItem.Url" aria-expanded="false">@secondItem.Descripcion </a></li>
+
+                                            }
+                                            }
+                                        </ul>
+
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+
+    </div>
+</nav>
+
+

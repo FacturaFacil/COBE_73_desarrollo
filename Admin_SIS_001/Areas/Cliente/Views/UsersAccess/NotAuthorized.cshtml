@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "NotAuthorized";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>500</h1>
+        <h3 class="font-bold">Usuario no Autorizado</h3>
+
+        <div class="error-desc">
+           El usuario ... no cuenta con los permisos para acceder a este documento.<br>
+            Pongase en contacto con su administrador: <br><a  asp-action="Index" asp-controller="Home" asp-area="Cliente" class="btn btn-primary m-t">Regresar</a>
+        </div>
+    </div>

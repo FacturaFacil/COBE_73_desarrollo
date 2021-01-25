@@ -1,0 +1,159 @@
+﻿@model Admin.Models.GEN.Tbl_GEN_SUCURSALES
+@{
+    ViewData["Title"] = "Registrar Sucursal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Registar Sucursal</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Id">Clave</label>
+                                @{ if (ViewBag.Folio != null)
+                                    {
+                                        <input asp-for="Id" class="form-control" value="@ViewBag.Folio"  id="txtId"/>
+                                    }
+                                    else
+                                    {
+                                        <input asp-for="Id" class="form-control" />
+                                    }}
+
+                                <span asp-validation-for="Id" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Descripcion">Nombre</label>
+                                <input asp-for="Descripcion" class="form-control" />
+                                <span asp-validation-for="Descripcion" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Rfc">RFC</label>
+                                <input asp-for="Rfc" class="form-control" />
+                                <span asp-validation-for="Rfc" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Calle">Calle</label>
+                                <input asp-for="Calle" class="form-control" />
+                                <span asp-validation-for="Calle" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Numero_Exterior">No. Exterior</label>
+                                <input asp-for="Numero_Exterior" class="form-control" />
+                                <span asp-validation-for="Numero_Exterior" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Numero_Interior">No. Interior</label>
+                                <input asp-for="Numero_Interior" class="form-control" />
+                                <span asp-validation-for="Numero_Interior" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Pais">Pais</label>
+                                <input asp-for="Pais" class="form-control" />
+                                <span asp-validation-for="Pais" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Estado">Estado</label>
+                                <input asp-for="Estado" class="form-control" />
+                                <span asp-validation-for="Estado" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Municipio_Deleg">Municipio</label>
+                                <input asp-for="Municipio_Deleg" class="form-control" />
+                                <span asp-validation-for="Municipio_Deleg" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Ciudad">Localidad</label>
+                                <input asp-for="Ciudad" class="form-control" />
+                                <span asp-validation-for="Ciudad" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Colonia">Colonia</label>
+                                <input asp-for="Colonia" class="form-control" />
+                                <span asp-validation-for="Colonia" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Cp">Codigo Postal</label>
+                                <input asp-for="Cp" class="form-control" />
+                                <span asp-validation-for="Cp" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Referencia">Referencia</label>
+                                <input asp-for="Referencia" class="form-control" />
+                                <span asp-validation-for="Referencia" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Telefonos">Telefono</label>
+                                <input asp-for="Telefonos" class="form-control" />
+                                <span asp-validation-for="Telefonos" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Create" } }' />
+                    </div>
+                    <div class="row">
+                        @*<div class="col-12">
+                            <div class="form-group row">
+                                <a asp-action="Index" class="btn btn-primary form-control"><i class="fa fa-angle-double-left"> <i class="fa fa-angle-double-left"> <b>&nbsp; Regresar a lista</b></i></i></a>
+                            </div>
+                        </div>*@
+                    </div>
+
+                </div>               
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/GEN/sucursales.js"></script>
+
+
+
+
+}
+

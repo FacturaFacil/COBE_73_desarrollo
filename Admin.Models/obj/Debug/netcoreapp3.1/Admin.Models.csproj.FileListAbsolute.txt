@@ -1,0 +1,17 @@
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.deps.json
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.dll
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.AssemblyInfoInputs.cache
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.AssemblyInfo.cs
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.pdb
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.csproj.CoreCompileInputs.cache
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.dll
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.pdb
+C:\ADMIN_SIS\Admin_SIS_001\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.csprojAssemblyReference.cache
+C:\COBE73\COBE_73\COBE_73\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.deps.json
+C:\COBE73\COBE_73\COBE_73\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.dll
+C:\COBE73\COBE_73\COBE_73\Admin.Models\bin\Debug\netcoreapp3.1\Admin.Models.pdb
+C:\COBE73\COBE_73\COBE_73\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.AssemblyInfoInputs.cache
+C:\COBE73\COBE_73\COBE_73\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.AssemblyInfo.cs
+C:\COBE73\COBE_73\COBE_73\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.csproj.CoreCompileInputs.cache
+C:\COBE73\COBE_73\COBE_73\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.dll
+C:\COBE73\COBE_73\COBE_73\Admin.Models\obj\Debug\netcoreapp3.1\Admin.Models.pdb

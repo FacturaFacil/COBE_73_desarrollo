@@ -1,0 +1,101 @@
+﻿@model Admin.Models.Tbl_INV_CLASESGASTOS
+@{
+    ViewData["Title"] = "Editar Clase de Gasto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Edit">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Registar Clase de Gastos</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="form-group">
+                            <label asp-for="Id">Clave</label>
+                            <input asp-for="Id" class="form-control" disabled />                         
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Descripcion">Descripcion</label>
+                            <input asp-for="Descripcion" class="form-control" />
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label asp-for="Activo">Activo</label>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            @{ if (Model.Activo == true)
+                                                {
+                                                    <input type="checkbox" asp-for="Activo" checked class="onoffswitch-checkbox cb_activo" id="cbActivo">
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" asp-for="Activo" class="onoffswitch-checkbox cb_activo" id="cbActivo">
+                                                }}
+                                           
+                                            <label class="onoffswitch-label" for="cbActivo">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Activo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label asp-for="Predefinido">Predeterminado</label>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            @{ if (Model.Predefinido == true)
+                                                {
+                                                  <input type="checkbox" asp-for="Predefinido" checked="" class="onoffswitch-checkbox" id="cbPredeterminado">
+                                                }
+                                                else
+                                                {
+                                                   <input type="checkbox" asp-for="Predefinido"  class="onoffswitch-checkbox" id="cbPredeterminado">
+                                                }}
+                                            
+                                            <label class="onoffswitch-label" for="cbPredeterminado">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Predefinido" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Edit" } }' />
+                    </div>
+                </div>
+
+
+                <div class="col-12">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/INV/clasesgastos.js"></script>
+
+
+
+
+}

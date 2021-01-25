@@ -1,0 +1,69 @@
+﻿@model Admin.Models.Tbl_INV_MARCAS
+@{
+    ViewData["Title"] = "Editar Marca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Edit">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Ediatr Marcas</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="id" />
+                    <div class="col-6 offset-3 mt-4">
+                        <div class="form-group">
+                            <label asp-for="id">Clave</label>
+                            <input asp-for="id" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="descripcion">Descripcion</label>
+                            <input asp-for="descripcion" class="form-control" />
+                            <span asp-validation-for="descripcion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="activo">Activo</label>
+                            <div class="switch">
+                                <div class="onoffswitch">
+                                    @{ if (Model.activo == true)
+                                        {
+                                            <input type="checkbox" asp-for="activo" checked class="onoffswitch-checkbox cb_activo" id="cb_activo">
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" asp-for="activo" class="onoffswitch-checkbox cb_activo" id="cb_activo">
+                                        }}
+                                    <label class="onoffswitch-label" for="cbActivo">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="descripcion" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <partial name="_Botones" view-data='@new ViewDataDictionary(ViewData) { { "data", "Edit" } }' />
+                    </div>
+                </div>
+                <div class="col-12">                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script src="~/js/INV/marcas.js"></script>
+
+
+
+
+}
